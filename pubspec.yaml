@@ -1,0 +1,59 @@
+name: cusmerraj
+description: A new Flutter project.
+version: 1.0.0+1
+environment:
+  sdk: '>=3.0.6 <4.0.0'
+dependencies: 
+  flutter: 
+    sdk: flutter
+
+  flutter_localizations: 
+    sdk: flutter
+  provider: ^6.0.5
+  cached_network_image: ^3.2.1
+  flutter_svg: ^1.1.6
+  flutter_svg_provider: ^1.0.3
+  country_picker: ^2.0.22
+  intl_phone_field: ^3.2.0
+  pinput: ^3.0.1
+  intl: ^0.18.0
+
+dev_dependencies: 
+  flutter_test: 
+    sdk: flutter
+flutter: 
+  uses-material-design: true
+  assets: 
+    - assets/
+    - assets/images/
+  fonts: 
+    - family: Poppins
+      fonts: 
+        - asset: assets/fonts/PoppinsBold.ttf
+          weight: 700
+        - asset: assets/fonts/PoppinsLight.ttf
+          weight: 300
+        - asset: assets/fonts/PoppinsMedium.ttf
+          weight: 500
+        - asset: assets/fonts/PoppinsSemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/PoppinsRegular.ttf
+          weight: 400
+    - family: Istok Web
+      fonts: 
+        - asset: assets/fonts/IstokWebRegular.ttf
+          weight: 400
+    - family: Roboto
+      fonts: 
+        - asset: assets/fonts/RobotoRomanRegular.ttf
+          weight: 400
+        - asset: assets/fonts/RobotoExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/RobotoSemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/RobotoRomanBold.ttf
+          weight: 700
+    - family: Inter
+      fonts: 
+        - asset: assets/fonts/InterRegular.ttf
+          weight: 400
