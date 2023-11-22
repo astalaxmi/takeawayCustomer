@@ -51,7 +51,7 @@ class TakeawayRegistrationfourScreen extends StatelessWidget {
                           children: [
                             SizedBox(height: 189.v),
                             Text(
-                              "lbl_getting_started".tr,
+                              "lbl_.getting_started".tr,
                               style: CustomTextStyles
                                   .titleLargePoppinsOnSecondaryContainer,
                             ),

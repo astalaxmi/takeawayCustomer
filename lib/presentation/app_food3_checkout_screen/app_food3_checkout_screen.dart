@@ -24,104 +24,97 @@ class AppFood3CheckoutScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        body: SizedBox(
-          width: double.maxFinite,
+        body: Padding(
+          padding: const EdgeInsets.all(15.0),
           child: Column(
             children: [
               SizedBox(height: 6.v),
               Expanded(
                 child: SingleChildScrollView(
-                  child: Padding(
-                    padding: EdgeInsets.only(right: 2.h),
-                    child: Column(
-                      children: [
-                        _buildView(context),
-                        SizedBox(height: 19.v),
-                        Center(
-                          child: Text(
-                            "lbl_checkout".tr,
-                            style: CustomTextStyles.headlineSmallGray50,
-                          ),
+                  child: Column(
+                    children: [
+                      _buildView(context),
+                      SizedBox(height: 19.v),
+                      Center(
+                        child: Text(
+                          "lbl_checkout".tr,
+                          style: CustomTextStyles.titleLargeRobotoGray10002,
                         ),
-                        SizedBox(height: 46.v),
-                        Padding(
-                          padding: EdgeInsets.only(left: 10.h, right: 10.h),
-                          child: Column(
-                            children: [
-                              _buildSeitanSteak(context),
-                              SizedBox(height: 45.v),
-                              Align(
-                                alignment: Alignment.centerRight,
-                                child: Container(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: 5.h,
-                                    vertical: 2.v,
-                                  ),
-                                  decoration: AppDecoration.fillOrange.copyWith(
-                                    borderRadius:
-                                        BorderRadiusStyle.roundedBorder15,
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsets.only(left: 5.h),
-                                        child: Text(
-                                          "lbl2".tr,
-                                          style: theme.textTheme.titleLarge,
-                                        ),
-                                      ),
-                                      Container(
-                                        width: 75.h,
-                                        padding: EdgeInsets.symmetric(
-                                          horizontal: 20.h,
-                                          vertical: 1.v,
-                                        ),
-                                        decoration: AppDecoration.fillGray10002
-                                            .copyWith(
-                                          borderRadius:
-                                              BorderRadiusStyle.roundedBorder12,
-                                        ),
-                                        child: Text(
-                                          "lbl_12_00".tr,
-                                          style: theme.textTheme.bodyMedium,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
+                      ),
+                      SizedBox(height: 20.v),
+                      Column(
+                        children: [
+                          _buildSeitanSteak(context),
+                          SizedBox(height: 20.v),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: Container(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 5.h,
+                                vertical: 2.v,
                               ),
-                              SizedBox(height: 27.v),
-                              _buildNow(context),
-                              SizedBox(height: 16.v),
-                              _buildNotification(context),
-                              SizedBox(height: 23.v),
-                              _buildPaymentMethod(context),
-                              SizedBox(height: 20.v),
-                              CustomElevatedButton(
-                                height: 41.v,
-                                width: 141.h,
-                                text: "lbl_order_id".tr,
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    CupertinoPageRoute(
-                                        builder: (context) =>
-                                            const AppFood4CheckoutScreen()),
-                                  );
-                                },
-                                buttonStyle: CustomButtonStyles.fillOrange,
-                                buttonTextStyle:
-                                    CustomTextStyles.titleLargeRobotoGray10002,
+                              decoration: AppDecoration.fillOrange.copyWith(
+                                borderRadius: BorderRadiusStyle.roundedBorder15,
                               ),
-                              SizedBox(height: 21.v),
-                            ],
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 5.h),
+                                    child: Text(
+                                      "lbl2".tr,
+                                      style: theme.textTheme.titleLarge,
+                                    ),
+                                  ),
+                                  Container(
+                                    width: 75.h,
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 20.h,
+                                      vertical: 1.v,
+                                    ),
+                                    decoration:
+                                        AppDecoration.fillGray10002.copyWith(
+                                      borderRadius:
+                                          BorderRadiusStyle.roundedBorder12,
+                                    ),
+                                    child: Text(
+                                      "lbl_12_00".tr,
+                                      style: theme.textTheme.bodyMedium,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
-                        ),
-                        //_buildHome(context),
-                      ],
-                    ),
+                          SizedBox(height: 27.v),
+                          _buildNow(context),
+                          SizedBox(height: 16.v),
+                          _buildNotification(context),
+                          SizedBox(height: 23.v),
+                          _buildPaymentMethod(context),
+                          SizedBox(height: 20.v),
+                          CustomElevatedButton(
+                            height: 41.v,
+                            width: 141.h,
+                            text: "lbl_order_id".tr,
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                CupertinoPageRoute(
+                                    builder: (context) =>
+                                        const AppFood4CheckoutScreen()),
+                              );
+                            },
+                            buttonStyle: CustomButtonStyles.fillOrange,
+                            buttonTextStyle:
+                                CustomTextStyles.titleLargeRobotoGray10002,
+                          ),
+                          SizedBox(height: 21.v),
+                        ],
+                      ),
+                      //_buildHome(context),
+                    ],
                   ),
                 ),
               ),
@@ -149,13 +142,6 @@ class AppFood3CheckoutScreen extends StatelessWidget {
               margin: EdgeInsets.only(bottom: 4.v),
               decoration: BoxDecoration(
                 color: appTheme.blueGray100,
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: 8.h),
-              child: Text(
-                "lbl_search".tr,
-                style: CustomTextStyles.headlineLargeInter,
               ),
             ),
           ],
@@ -302,81 +288,74 @@ class AppFood3CheckoutScreen extends StatelessWidget {
             style: CustomTextStyles.titleLargeRoboto,
           ),
           SizedBox(height: 5.v),
-          Padding(
-            padding: EdgeInsets.only(right: 1.h),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(
-                    top: 2.v,
-                    bottom: 3.v,
-                  ),
-                  child: Row(
-                    children: [
-                      CustomRadioButton(
-                        text: "lbl_now".tr,
-                        value: radioList[0],
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 4.0, right: 4),
+                child: Row(
+                  children: [
+                    CustomRadioButton(
+                      text: "lbl_now".tr,
+                      value: radioList[0],
+                      groupValue: xxxx,
+                      onChange: (value) {
+                        xxxx = value;
+                      },
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 15.h),
+                      child: CustomRadioButton(
+                        text: "lbl_define_hour".tr,
+                        value: radioList[1],
                         groupValue: xxxx,
                         onChange: (value) {
                           xxxx = value;
                         },
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 15.h),
-                        child: CustomRadioButton(
-                          text: "lbl_define_hour".tr,
-                          value: radioList[1],
-                          groupValue: xxxx,
-                          onChange: (value) {
-                            xxxx = value;
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 3.h,
-                    vertical: 2.v,
-                  ),
-                  decoration: AppDecoration.fillBlueGray.copyWith(
-                    borderRadius: BorderRadiusStyle.roundedBorder12,
-                  ),
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 3.h,
+                  vertical: 2.v,
+                ),
+                decoration: AppDecoration.fillBlueGray.copyWith(
+                  borderRadius: BorderRadiusStyle.roundedBorder12,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(4.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      SizedBox(
-                        height: 17.v,
-                        width: 55.h,
-                        child: Stack(
-                          alignment: Alignment.bottomCenter,
-                          children: [
-                            Align(
-                              alignment: Alignment.topCenter,
-                              child: Container(
-                                height: 16.v,
-                                width: 50.h,
-                                decoration: BoxDecoration(
-                                  color: appTheme.gray10002,
-                                  borderRadius: BorderRadius.circular(
-                                    8.h,
-                                  ),
+                      Stack(
+                        alignment: Alignment.bottomCenter,
+                        children: [
+                          Align(
+                            alignment: Alignment.topCenter,
+                            child: Container(
+                              height: 16.v,
+                              width: 50.h,
+                              decoration: BoxDecoration(
+                                color: appTheme.gray10002,
+                                borderRadius: BorderRadius.circular(
+                                  8.h,
                                 ),
                               ),
                             ),
-                            Align(
-                              alignment: Alignment.bottomCenter,
-                              child: Text(
-                                "lbl_xx_xx".tr,
-                                style: CustomTextStyles.bodyMediumBlack900,
-                              ),
+                          ),
+                          Align(
+                            alignment: Alignment.bottomCenter,
+                            child: Text(
+                              "lbl_xx_xx".tr,
+                              style: CustomTextStyles.bodyMediumBlack900,
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                       CustomImageView(
                         imagePath: ImageConstant.imgPolygon1,
@@ -391,8 +370,8 @@ class AppFood3CheckoutScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
           SizedBox(height: 8.v),
         ],
@@ -534,21 +513,21 @@ class AppFood3CheckoutScreen extends StatelessWidget {
             Center(
               child: Text(
                 "msg_pay_at_restaurant".tr,
-                style: CustomTextStyles.titleLargeRobotoSecondaryContainer_1,
+                style: CustomTextStyles.bodyMediumRobotoBlack900,
               ),
             ),
             SizedBox(height: 9.v),
             Center(
               child: Text(
                 "lbl_or".tr,
-                style: CustomTextStyles.titleLargeRobotoSecondaryContainer_1,
+                style: CustomTextStyles.bodyMediumRobotoBlack900,
               ),
             ),
             SizedBox(height: 12.v),
             Center(
               child: Text(
                 "lbl_upi".tr,
-                style: CustomTextStyles.titleLargeRobotoSecondaryContainer_1,
+                style: CustomTextStyles.bodyMediumRobotoBlack900,
               ),
             ),
             SizedBox(height: 1.v),

@@ -27,72 +27,58 @@ class FavouritesScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        body: SizedBox(
-          width: double.maxFinite,
+        body: Padding(
+          padding: const EdgeInsets.all(15.0),
           child: Column(
             children: [
               SizedBox(height: 4.v),
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Padding(
-                    padding: EdgeInsets.only(right: 12.h),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        _buildSearchView(context),
-                        SizedBox(height: 30.v),
-                        Center(
-                          child: Container(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 30.h,
-                              vertical: 25.v,
-                            ),
-                            decoration: AppDecoration.outlineGrayF,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                CustomImageView(
-                                  imagePath: ImageConstant.imgLocationGray90001,
-                                  height: 32.v,
-                                  width: 27.h,
-                                  margin: EdgeInsets.only(
-                                    left: 8.h,
-                                    top: 2.v,
-                                    bottom: 11.v,
-                                  ),
+              SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _buildSearchView(context),
+                    SizedBox(height: 30.v),
+                    Center(
+                      child: Container(
+                        decoration: AppDecoration.outlineGrayF,
+                        child: Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              CustomImageView(
+                                imagePath: ImageConstant.imgLocationGray90001,
+                                height: 32.v,
+                                width: 27.h,
+                                margin: EdgeInsets.only(
+                                  left: 8.h,
+                                  top: 2.v,
+                                  bottom: 11.v,
                                 ),
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                    left: 20.h,
-                                    bottom: 9.v,
-                                  ),
-                                  child: Text(
-                                    "lbl_favourites".tr,
-                                    style:
-                                        CustomTextStyles.headlineSmallGray90001,
-                                  ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  left: 20.h,
+                                  bottom: 9.v,
                                 ),
-                              ],
-                            ),
+                                child: Text(
+                                  "lbl_favourites".tr,
+                                  style:
+                                      CustomTextStyles.headlineSmallGray90001,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                        SizedBox(height: 28.v),
-                        _buildElevenEditText(context),
-                        SizedBox(height: 29.v),
-                        _buildAbRestaurantEditText(context),
-                        SizedBox(height: 38.v),
-                        _buildMedplusEditText(context),
-                        SizedBox(height: 28.v),
-                        _buildPvrCinemasEditText(context),
-                        SizedBox(height: 28.v),
-                        _buildInoxMoviesEditText(context),
-                        SizedBox(height: 84.v),
-                        // _buildHomeRow(context),
-                      ],
+                      ),
                     ),
-                  ),
+                    SizedBox(height: 30.v),
+
+                    _buildListShow(),
+
+                    // _buildHomeRow(context),
+                  ],
                 ),
               ),
             ],
@@ -143,6 +129,44 @@ class FavouritesScreen extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildListShow() {
+    final List<String> itemList = [
+      "elevan",
+      "a2b resurent",
+      "medplus",
+      "pvr cinemas",
+      "Inox movies"
+    ];
+
+    return SizedBox(
+      height: 500,
+      child: ListView.builder(
+        itemCount: itemList.length,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              decoration: AppDecoration.outlineGray4003f,
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Text(
+                      itemList[index],
+                      style: CustomTextStyles.bodyMediumPoppinsGray9000114,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
       ),
     );
   }
@@ -338,6 +362,47 @@ class FavouritesScreen extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class YourWidget extends StatelessWidget {
+  final List<String> itemList = [
+    "elevan",
+    "a2b resurent",
+    "medplus",
+    "pvr cinemas",
+    "Inox movies"
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: ListView.builder(
+        itemCount: itemList.length,
+        itemBuilder: (context, index) {
+          return _buildListShow(itemList[index]);
+        },
+      ),
+    );
+  }
+
+  Widget _buildListShow(String itemName) {
+    return Container(
+      decoration: AppDecoration.outlineGray4003f,
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Text(
+              itemName,
+              style: CustomTextStyles.bodyMediumPoppinsGray9000114,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

@@ -113,6 +113,12 @@ class CustomTextStyles {
         color: appTheme.black900,
         fontSize: 14.fSize,
       );
+
+  static get bodyMediumRobotoWhite900 =>
+      theme.textTheme.bodyMedium!.roboto.copyWith(
+        color: Colors.white,
+        fontSize: 14.fSize,
+      );
   static get bodySmall8 => theme.textTheme.bodySmall!.copyWith(
         fontSize: 8.fSize,
       );

@@ -11,29 +11,18 @@ class OrderhistorylistItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: 10.h,
-        vertical: 12.v,
-      ),
       decoration: AppDecoration.outlineGray4003f,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: EdgeInsets.only(bottom: 20.v),
-            child: Text(
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Text(
               "lbl_7_eleven2".tr,
-              style: CustomTextStyles.titleLargePoppinsGray90001,
+              style: CustomTextStyles.bodyMediumPoppinsGray9000114,
             ),
-          ),
-          Container(
-            width: 142.h,
-            margin: EdgeInsets.only(
-              left: 74.h,
-              top: 4.v,
-              bottom: 2.v,
-            ),
-            child: RichText(
+            RichText(
               text: TextSpan(
                 children: [
                   TextSpan(
@@ -59,8 +48,8 @@ class OrderhistorylistItemWidget extends StatelessWidget {
               ),
               textAlign: TextAlign.left,
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

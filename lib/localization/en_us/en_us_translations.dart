@@ -147,6 +147,8 @@ final Map<String, String> enUs = {
   "lbl_coca_cola": "Coca cola",
   "lbl_define_hour": "Define hour",
   "lbl_e_mail": "E-Mail",
+  "lbl_.getting_started": "Getting Started",
+
   "lbl_favourites": "Favourites",
   "lbl_feedback": "Feedback",
   "lbl_help_support": "Help & Support",

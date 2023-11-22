@@ -15,98 +15,75 @@ class HelpSupportScreen extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        body: SizedBox(
-          width: double.maxFinite,
+        body: Padding(
+          padding: const EdgeInsets.all(15.0),
           child: Column(
             children: [
               SizedBox(height: 4.v),
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Padding(
-                    padding: EdgeInsets.only(right: 12.h),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+              SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _buildSearchView(context),
+                    SizedBox(height: 30.v),
+                    Column(
                       children: [
-                        _buildSearchView(context),
-                        SizedBox(height: 30.v),
-                        Padding(
-                          padding: EdgeInsets.only(left: 10.h, right: 10.h),
-                          child: Column(
-                            children: [
-                              Center(
-                                child: Container(
-                                  decoration: AppDecoration.outlineGrayF,
-                                  child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      CustomImageView(
-                                        imagePath: ImageConstant
-                                            .imgHelpCircleGray90001,
-                                        height: 32.v,
-                                        width: 37.h,
-                                        margin: EdgeInsets.only(
-                                          top: 36.v,
-                                          bottom: 17.v,
-                                        ),
-                                      ),
-                                      Container(
-                                        width: 95.h,
-                                        margin: EdgeInsets.only(
-                                          left: 30.h,
-                                          top: 11.v,
-                                        ),
-                                        child: Text(
-                                          "lbl_help_support".tr,
-                                          maxLines: 2,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: CustomTextStyles
-                                              .headlineSmallGray90001,
-                                        ),
-                                      ),
-                                    ],
+                        Center(
+                          child: Container(
+                            decoration: AppDecoration.outlineGrayF,
+                            child: Padding(
+                              padding: const EdgeInsets.all(15.0),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  CustomImageView(
+                                    imagePath:
+                                        ImageConstant.imgHelpCircleGray90001,
+                                    height: 32.v,
+                                    width: 37.h,
                                   ),
-                                ),
+                                  Text(
+                                    "lbl_help_support".tr,
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                    style:
+                                        CustomTextStyles.headlineSmallGray90001,
+                                  ),
+                                ],
                               ),
-                              SizedBox(height: 32.v),
-                              Align(
-                                alignment: Alignment.center,
-                                child: Container(
-                                  padding:
-                                      EdgeInsets.symmetric(horizontal: 4.h),
-                                  decoration: AppDecoration.outlineGrayF,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      CustomElevatedButton(
-                                        height: 34.v,
-                                        width: 188.h,
-                                        text: "msg_type_your_message".tr,
-                                        margin: EdgeInsets.only(
-                                          left: 4.h,
-                                          top: 471.v,
-                                          bottom: 13.v,
-                                        ),
-                                        buttonStyle: CustomButtonStyles.fillRed,
-                                        buttonTextStyle: CustomTextStyles
-                                            .bodyMediumPoppinsGray9000115,
-                                      ),
-                                      CustomImageView(
-                                        imagePath:
-                                            ImageConstant.imgRectangle101,
-                                        height: 61.v,
-                                        width: 115.h,
-                                        margin: EdgeInsets.only(
-                                          left: 6.h,
-                                          top: 457.v,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 22.v),
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 4.h),
+                          decoration: AppDecoration.outlineGrayF,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              CustomElevatedButton(
+                                height: 34.v,
+                                width: 188.h,
+                                text: "msg_type_your_message".tr,
+                                margin: EdgeInsets.only(
+                                  left: 4.h,
+                                  top: 471.v,
+                                  bottom: 13.v,
+                                ),
+                                buttonStyle: CustomButtonStyles.fillRed,
+                                buttonTextStyle: CustomTextStyles
+                                    .bodyMediumPoppinsGray9000115,
+                              ),
+                              CustomImageView(
+                                imagePath: ImageConstant.imgRectangle101,
+                                height: 61.v,
+                                width: 115.h,
+                                margin: EdgeInsets.only(
+                                  left: 6.h,
+                                  top: 457.v,
                                 ),
                               ),
                             ],
@@ -114,7 +91,7 @@ class HelpSupportScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                  ),
+                  ],
                 ),
               ),
             ],
@@ -154,13 +131,6 @@ class HelpSupportScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 color: appTheme.blueGray100,
               ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: 3.h),
-            child: Text(
-              "lbl_search".tr,
-              style: theme.textTheme.headlineLarge,
             ),
           ),
         ],

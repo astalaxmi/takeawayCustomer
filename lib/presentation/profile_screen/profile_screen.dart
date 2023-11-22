@@ -171,18 +171,17 @@ class ProfileScreen extends StatelessWidget {
                             ),
                             Text(
                               "lbl_91_555555555".tr,
-                              style: CustomTextStyles.bodyLargeRegular,
+                              style: CustomTextStyles.bodyMediumRobotoWhite900,
                             ),
                             Text(
                               "msg_order_takeaway_com".tr,
-                              style: CustomTextStyles
-                                  .titleSmallOnPrimaryContainer_1,
+                              style: CustomTextStyles.bodyMediumRobotoWhite900,
                             ),
                           ],
                         ),
                         SizedBox(
-                          height: 117.v,
-                          width: 109.h,
+                          height: 87.v,
+                          width: 87.h,
                           child: Stack(
                             alignment: Alignment.center,
                             children: [

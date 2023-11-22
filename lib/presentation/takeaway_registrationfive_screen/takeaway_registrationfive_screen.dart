@@ -70,6 +70,13 @@ class TakeawayRegistrationfiveScreen extends StatelessWidget {
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
+                                SizedBox(height: 5.v),
+                                Text(
+                                  "lbl_getting_started".tr,
+                                  style: CustomTextStyles
+                                      .titleLargePoppinsOnSecondaryContainer,
+                                ),
+                                SizedBox(height: 7.v),
                                 Align(
                                   alignment: Alignment.centerLeft,
                                   child: Text(

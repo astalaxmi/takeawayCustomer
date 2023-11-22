@@ -251,7 +251,7 @@ class TakeawayRegistrationthreeScreen extends StatelessWidget {
       text: "lbl_s_gn_up".tr,
       buttonTextStyle: CustomTextStyles.bodyLargeOnSecondaryContainer,
       onPressed: () {
-        Navigator.pushNamed(context, AppRoutes.takeawayRegistrationfourScreen);
+        Navigator.pushNamed(context, AppRoutes.takeawayRegistrationfiveScreen);
       },
     );
   }

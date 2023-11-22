@@ -33,6 +33,7 @@ class AppDecoration {
       );
   static BoxDecoration get outlineGray4003f => BoxDecoration(
         color: appTheme.amber700,
+        borderRadius: BorderRadiusStyle.roundedBorder7,
         boxShadow: [
           BoxShadow(
             color: appTheme.gray4003f,
@@ -65,6 +66,7 @@ class AppDecoration {
       );
   static BoxDecoration get outlineGrayF => BoxDecoration(
         color: theme.colorScheme.onPrimaryContainer,
+        borderRadius: BorderRadiusStyle.roundedBorder7,
         boxShadow: [
           BoxShadow(
             color: appTheme.gray4003f,
