@@ -1,4 +1,5 @@
 import 'package:cusmerraj/core/app_export.dart';
+import 'package:cusmerraj/widgets/app_text/app_text.dart';
 import 'package:cusmerraj/widgets/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart' as fs;
@@ -15,6 +16,64 @@ class AppFood4CheckoutScreen extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          backgroundColor: appTheme.teal50,
+          title: GestureDetector(
+            onTap: () {
+//              Navigator.push(context, SizeTransition4(SearchPage()));
+              // Navigator.of(context)
+              //     .push(MaterialPageRoute(builder: (_) => const SearchPage()));
+            },
+            child: Row(
+              children: [
+                Expanded(
+                  child: Container(
+                      height: 45,
+                      decoration: AppDecoration.fillOnPrimaryContainer.copyWith(
+                        borderRadius: BorderRadiusStyle.roundedBorder7,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'TakeAway.com....',
+                              style:
+                                  CustomTextStyles.titleSmallPoppinsBluegray800,
+                            ),
+                            IconButton(
+                                onPressed: () {},
+                                icon: const Icon(
+                                  Icons.search,
+                                  size: 15,
+                                  color: Color(0XFF0274BC),
+                                )),
+                          ],
+                        ),
+                      )),
+                ),
+              ],
+            ),
+          ),
+          actions: [
+            // Navigate to the Search Screen
+
+            IconButton(
+              icon: const Icon(
+                Icons.notification_add,
+                size: 25,
+                color: Colors.white,
+              ),
+              onPressed: () {},
+            ),
+            SizedBox(
+              width: 10,
+            ),
+          ],
+        ),
         backgroundColor: appTheme.teal50,
         body: SizedBox(
           width: double.maxFinite,
@@ -25,22 +84,17 @@ class AppFood4CheckoutScreen extends StatelessWidget {
               Expanded(
                 child: SingleChildScrollView(
                   child: Padding(
-                    padding: EdgeInsets.only(right: 12.h),
+                    padding: const EdgeInsets.all(15.0),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        _buildView(context),
-                        SizedBox(height: 17.v),
+                        SizedBox(height: 14.v),
                         Container(
-                          width: 95.h,
-                          margin: EdgeInsets.only(left: 101.h),
-                          child: Text(
-                            "msg_order_in_progress".tr,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            textAlign: TextAlign.center,
-                            style: CustomTextStyles.headlineSmallRobotoBlack900,
-                          ),
+                          child: AppText("msg_order_in_progress".tr,
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.center,
+                              style:
+                                  CustomTextStyles.headlineSmallRobotoBlack900),
                         ),
                         SizedBox(height: 47.v),
                         Align(
@@ -72,105 +126,85 @@ class AppFood4CheckoutScreen extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: 51.v),
-                        Padding(
-                          padding: EdgeInsets.only(left: 72.h),
-                          child: Text(
-                            "msg_time_to_pick_up".tr,
-                            style: CustomTextStyles.titleLargeRoboto,
-                          ),
+                        Text(
+                          "msg_time_to_pick_up".tr,
+                          style: CustomTextStyles.titleLargeRoboto,
                         ),
                         SizedBox(height: 6.v),
-                        Padding(
-                          padding: EdgeInsets.only(left: 114.h),
-                          child: Text(
-                            "lbl_15_25".tr,
-                            style:
-                                CustomTextStyles.headlineSmallRobotoOrange700,
-                          ),
+                        Text(
+                          "lbl_15_25".tr,
+                          style: CustomTextStyles.headlineSmallRobotoOrange700,
                         ),
                         SizedBox(height: 9.v),
                         CustomElevatedButton(
                           text: "lbl_cancel_order".tr,
-                          margin: EdgeInsets.only(right: 42.h),
                           buttonStyle: CustomButtonStyles.fillGray,
                           buttonTextStyle: theme.textTheme.titleMedium!,
                         ),
                         SizedBox(height: 37.v),
-                        Padding(
-                          padding: EdgeInsets.only(left: 20.h),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              CustomImageView(
-                                imagePath: ImageConstant.imgLocationGray90002,
-                                height: 40.adaptSize,
-                                width: 40.adaptSize,
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            CustomImageView(
+                              imagePath: ImageConstant.imgLocationGray90002,
+                              height: 40.adaptSize,
+                              width: 40.adaptSize,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                left: 2.h,
+                                top: 6.v,
+                                bottom: 9.v,
                               ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                  left: 2.h,
-                                  top: 6.v,
-                                  bottom: 9.v,
-                                ),
-                                child: Text(
-                                  "msg_restaurant_address".tr,
-                                  style: CustomTextStyles.titleLargeRoboto,
-                                ),
+                              child: Text(
+                                "msg_restaurant_address".tr,
+                                style: CustomTextStyles.titleLargeRoboto,
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                         SizedBox(height: 85.v),
-                        Padding(
-                          padding: EdgeInsets.only(left: 63.h),
-                          child: Text(
-                            "msg_follow_us_on_social".tr,
-                            style: CustomTextStyles.bodyMediumRobotoBlack900,
-                          ),
+                        Text(
+                          "msg_follow_us_on_social".tr,
+                          style: CustomTextStyles.bodyMediumRobotoBlack900,
                         ),
                         SizedBox(height: 23.v),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            left: 40.h,
-                            right: 61.h,
-                          ),
-                          child: Row(
-                            children: [
-                              CustomImageView(
-                                imagePath: ImageConstant.imgBxlFacebookSquare,
-                                height: 42.adaptSize,
-                                width: 42.adaptSize,
-                                margin: EdgeInsets.only(top: 2.v),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            CustomImageView(
+                              imagePath: ImageConstant.imgBxlFacebookSquare,
+                              height: 35.adaptSize,
+                              width: 35.adaptSize,
+                              margin: EdgeInsets.only(top: 2.v),
+                            ),
+                            CustomImageView(
+                              imagePath:
+                                  ImageConstant.imgAkarIconsInstagramFill,
+                              height: 35.adaptSize,
+                              width: 35.adaptSize,
+                              margin: EdgeInsets.only(
+                                left: 27.h,
+                                top: 2.v,
                               ),
-                              CustomImageView(
-                                imagePath:
-                                    ImageConstant.imgAkarIconsInstagramFill,
-                                height: 42.adaptSize,
-                                width: 42.adaptSize,
-                                margin: EdgeInsets.only(
-                                  left: 27.h,
-                                  top: 2.v,
-                                ),
+                            ),
+                            CustomImageView(
+                              imagePath: ImageConstant.imgAkarIconsTwitterFill,
+                              height: 35.adaptSize,
+                              width: 35.adaptSize,
+                              margin: EdgeInsets.only(
+                                left: 26.h,
+                                top: 2.v,
                               ),
-                              CustomImageView(
-                                imagePath:
-                                    ImageConstant.imgAkarIconsTwitterFill,
-                                height: 42.adaptSize,
-                                width: 42.adaptSize,
-                                margin: EdgeInsets.only(
-                                  left: 26.h,
-                                  top: 2.v,
-                                ),
-                              ),
-                              CustomImageView(
-                                imagePath:
-                                    ImageConstant.imgAkarIconsYoutubeFill,
-                                height: 42.adaptSize,
-                                width: 42.adaptSize,
-                                margin: EdgeInsets.only(left: 26.h),
-                              ),
-                            ],
-                          ),
+                            ),
+                            CustomImageView(
+                              imagePath: ImageConstant.imgAkarIconsYoutubeFill,
+                              height: 35.adaptSize,
+                              width: 35.adaptSize,
+                              margin: EdgeInsets.only(left: 26.h),
+                            ),
+                          ],
                         ),
                         SizedBox(height: 53.v),
                         //_buildHome(context),

@@ -43,13 +43,13 @@ class TakeawayRegistrationfourScreen extends StatelessWidget {
                         ),
                         padding: EdgeInsets.symmetric(
                           horizontal: 23.h,
-                          vertical: 17.v,
+                          vertical: 1.v,
                         ),
                         child: Column(
-                          mainAxisSize: MainAxisSize.min,
+                          mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            SizedBox(height: 189.v),
+                            SizedBox(height: 120.v),
                             Text(
                               "lbl_.getting_started".tr,
                               style: CustomTextStyles
@@ -61,7 +61,7 @@ class TakeawayRegistrationfourScreen extends StatelessWidget {
                               style:
                                   CustomTextStyles.bodyMediumPoppinsGray80001,
                             ),
-                            SizedBox(height: 41.v),
+                            SizedBox(height: 25.v),
                             Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
@@ -70,25 +70,25 @@ class TakeawayRegistrationfourScreen extends StatelessWidget {
                                     CustomTextStyles.bodyMediumPoppinsGray600,
                               ),
                             ),
-                            SizedBox(height: 19.v),
+                            SizedBox(height: 6.v),
                             Padding(
                               padding: EdgeInsets.only(right: 7.h),
                               child: CustomTextFormField(
                                 controller: emailController,
                                 hintText: "lbl_xxxxxx".tr,
                                 hintStyle: theme.textTheme.titleSmall!,
-                                suffix: Container(
-                                  margin: EdgeInsets.only(
-                                    left: 30.h,
-                                    right: 1.h,
-                                    bottom: 16.v,
-                                  ),
-                                  child: CustomImageView(
-                                    imagePath: ImageConstant.imgCheckmark,
-                                    height: 18.v,
-                                    width: 24.h,
-                                  ),
-                                ),
+                                // suffix: Container(
+                                //   margin: EdgeInsets.only(
+                                //     left: 30.h,
+                                //     right: 1.h,
+                                //     bottom: 16.v,
+                                //   ),
+                                //   child: CustomImageView(
+                                //     imagePath: ImageConstant.imgCheckmark,
+                                //     height: 18.v,
+                                //     width: 24.h,
+                                //   ),
+                                // ),
                                 suffixConstraints: BoxConstraints(
                                   maxHeight: 35.v,
                                 ),
@@ -108,7 +108,7 @@ class TakeawayRegistrationfourScreen extends StatelessWidget {
                               ),
                             ),
                             //_buildPasswordSection(context),
-                            SizedBox(height: 36.v),
+                            SizedBox(height: 25.v),
                             Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
@@ -117,7 +117,7 @@ class TakeawayRegistrationfourScreen extends StatelessWidget {
                                     CustomTextStyles.bodyMediumPoppinsGray600,
                               ),
                             ),
-                            SizedBox(height: 19.v),
+                            SizedBox(height: 6.v),
                             Padding(
                               padding: EdgeInsets.only(right: 7.h),
                               child: CustomTextFormField(
@@ -140,7 +140,7 @@ class TakeawayRegistrationfourScreen extends StatelessWidget {
                                 contentPadding: EdgeInsets.only(right: 30.h),
                               ),
                             ),
-                            SizedBox(height: 36.v),
+                            SizedBox(height: 25.v),
                             Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
@@ -149,7 +149,7 @@ class TakeawayRegistrationfourScreen extends StatelessWidget {
                                     CustomTextStyles.bodyMediumPoppinsGray600,
                               ),
                             ),
-                            SizedBox(height: 12.v),
+                            SizedBox(height: 6.v),
                             Padding(
                               padding: EdgeInsets.only(right: 7.h),
                               child: CustomTextFormField(
@@ -174,18 +174,112 @@ class TakeawayRegistrationfourScreen extends StatelessWidget {
                                   maxHeight: 39.v,
                                 ),
                                 obscureText: true,
+                                suffix: Container(
+                                    margin: EdgeInsets.only(
+                                      left: 4.h,
+                                      right: 21.h,
+                                      bottom: 13.v,
+                                    ),
+                                    child: Icon(
+                                      Icons.remove_red_eye,
+                                      size: 25,
+                                      color: Colors.grey,
+                                    )),
                               ),
                             ),
-                            SizedBox(height: 59.v),
+                            SizedBox(height: 25.v),
+                            Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                "Confirm password".tr,
+                                style:
+                                    CustomTextStyles.bodyMediumPoppinsGray600,
+                              ),
+                            ),
+                            SizedBox(height: 6.v),
+                            Padding(
+                              padding: EdgeInsets.only(right: 7.h),
+                              child: CustomTextFormField(
+                                controller: passwordController,
+                                hintText: "lbl".tr,
+                                hintStyle: theme.textTheme.titleSmall!,
+                                textInputAction: TextInputAction.done,
+                                textInputType: TextInputType.visiblePassword,
+                                prefix: Container(
+                                  margin: EdgeInsets.only(
+                                    left: 4.h,
+                                    right: 21.h,
+                                    bottom: 13.v,
+                                  ),
+                                  child: CustomImageView(
+                                    imagePath: ImageConstant.imgLockBlack900,
+                                    height: 26.v,
+                                    width: 19.h,
+                                  ),
+                                ),
+                                prefixConstraints: BoxConstraints(
+                                  maxHeight: 39.v,
+                                ),
+                                obscureText: true,
+                                suffix: Container(
+                                    margin: EdgeInsets.only(
+                                      left: 4.h,
+                                      right: 21.h,
+                                      bottom: 13.v,
+                                    ),
+                                    child: Icon(
+                                      Icons.remove_red_eye,
+                                      size: 25,
+                                      color: Colors.grey,
+                                    )),
+                              ),
+                            ),
+                            SizedBox(height: 25.v),
+                            Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                "Mobile number".tr,
+                                style:
+                                    CustomTextStyles.bodyMediumPoppinsGray600,
+                              ),
+                            ),
+                            SizedBox(height: 6.v),
+                            Padding(
+                              padding: EdgeInsets.only(right: 7.h),
+                              child: CustomTextFormField(
+                                controller: passwordController,
+                                hintText: " +91   97822658".tr,
+                                hintStyle: theme.textTheme.titleSmall!,
+                                textInputAction: TextInputAction.done,
+                                textInputType: TextInputType.visiblePassword,
+                                prefix: Container(
+                                  margin: EdgeInsets.only(
+                                    left: 4.h,
+                                    right: 21.h,
+                                    bottom: 13.v,
+                                  ),
+                                  child: CustomImageView(
+                                    imagePath: ImageConstant.imgMobile,
+                                    height: 26.v,
+                                    width: 19.h,
+                                  ),
+                                ),
+                                prefixConstraints: BoxConstraints(
+                                  maxHeight: 39.v,
+                                ),
+                              ),
+                            ),
+
+                            SizedBox(height: 17.v),
                             CustomElevatedButton(
                               onPressed: () {
                                 Navigator.pushNamed(context,
-                                    AppRoutes.takeawayRegistrationfiveScreen);
+                                    AppRoutes.takeawayRegistrationsixScreen);
                               },
                               text: "lbl_s_gn_up".tr,
                               margin: EdgeInsets.only(right: 7.h),
                             ),
-                            SizedBox(height: 17.v),
+                            SizedBox(height: 10.v),
                             RichText(
                               text: TextSpan(
                                 children: [
@@ -293,25 +387,37 @@ class TakeawayRegistrationfourScreen extends StatelessWidget {
       alignment: Alignment.topCenter,
       child: Container(
         padding: EdgeInsets.symmetric(
-          horizontal: 129.h,
-          vertical: 27.v,
+          horizontal: 19.h,
+          vertical: 35.v,
         ),
-        decoration: AppDecoration.fillOnSecondaryContainer,
+        // decoration: AppDecoration.fillOnSecondaryContainer,
+
+        decoration: BoxDecoration(
+          color: theme.colorScheme.onSecondaryContainer,
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(30),
+            bottomRight: Radius.circular(30),
+          ),
+        ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: 5.v),
-            Container(
-              width: 150.h,
-              margin: EdgeInsets.only(right: 1.h),
-              child: Text(
-                "lbl_take_away".tr,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.center,
-                style: CustomTextStyles.headlineLargePoppins,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CustomImageView(
+                  imagePath: ImageConstant.imgProfilePrimary,
+                  height: 57.v,
+                  width: 59.h,
+                ),
+                SizedBox(width: 18.v),
+                Text(
+                  "lbl_take_away".tr,
+                  style: CustomTextStyles.titleLargePoppinsOnPrimaryContainer,
+                ),
+              ],
             ),
           ],
         ),

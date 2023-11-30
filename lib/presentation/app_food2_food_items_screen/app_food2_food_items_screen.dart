@@ -2,7 +2,7 @@ import 'package:cusmerraj/core/app_export.dart';
 import 'package:flutter/material.dart';
 
 class AppFood2FoodItemsScreen extends StatelessWidget {
-  const AppFood2FoodItemsScreen({Key? key})
+  AppFood2FoodItemsScreen({Key? key})
       : super(
           key: key,
         );
@@ -13,6 +13,64 @@ class AppFood2FoodItemsScreen extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          backgroundColor: Theme.of(context).colorScheme.onSecondaryContainer,
+          title: GestureDetector(
+            onTap: () {
+//              Navigator.push(context, SizeTransition4(SearchPage()));
+              // Navigator.of(context)
+              //     .push(MaterialPageRoute(builder: (_) => const SearchPage()));
+            },
+            child: Row(
+              children: [
+                Expanded(
+                  child: Container(
+                      height: 45,
+                      decoration: AppDecoration.fillOnPrimaryContainer.copyWith(
+                        borderRadius: BorderRadiusStyle.roundedBorder7,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'TakeAway.com....',
+                              style:
+                                  CustomTextStyles.titleSmallPoppinsBluegray800,
+                            ),
+                            IconButton(
+                                onPressed: () {},
+                                icon: const Icon(
+                                  Icons.search,
+                                  size: 15,
+                                  color: Color(0XFF0274BC),
+                                )),
+                          ],
+                        ),
+                      )),
+                ),
+              ],
+            ),
+          ),
+          actions: [
+            // Navigate to the Search Screen
+
+            IconButton(
+              icon: const Icon(
+                Icons.notification_add,
+                size: 25,
+                color: Colors.white,
+              ),
+              onPressed: () {},
+            ),
+            SizedBox(
+              width: 10,
+            ),
+          ],
+        ),
         body: Padding(
           padding: const EdgeInsets.all(15.0),
           child: Column(
@@ -24,14 +82,14 @@ class AppFood2FoodItemsScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       //_buildRowWithSearch(context),
-                      SizedBox(height: 21.v),
+                      SizedBox(height: 1.v),
                       Center(
                         child: Text(
                           "lbl_restaurants".tr,
                           style: CustomTextStyles.titleLargeRobotoGray10002,
                         ),
                       ),
-                      SizedBox(height: 40.v),
+                      SizedBox(height: 15.v),
                       _buildRestaurantListgrid(context),
                       // _buildRestaurantDetails(context),
                       //_buildBottomNavigationBar(context),
@@ -46,8 +104,22 @@ class AppFood2FoodItemsScreen extends StatelessWidget {
     );
   }
 
+  List imageUrls = [
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThQ3qiewOGxls_l7eZrk39Un6Vvr9MDklUMA&usqp=CAU",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYVdV2TgDvdhiM5024UgDBmx6_qhX9sfQICw&usqp=CAU",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpu8KaXdLzzcMMYCW1-Ob8Lcgd43O_z6Omfg&usqp=CAU",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbqNJwaI5dKMOnJPdKo0gcmqDrfRV0Q5-gbQ&usqp=CAU",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJjCw-EXNkZI7On3CgMRqG63xaTsWd4a9Hxg&usqp=CAU",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQysd08BJqcjwHv7ze719jCBeKNYW3HmZZr6w&usqp=CAU",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1QvVsOFZCJ3qKhwZsseERR2UWLGmwrgHWhw&usqp=CAU",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-QrEfl7PfS875O8oxn6XSXpHiMxOsd4B2Lw&usqp=CAU"
+    // Add more image URLs as needed
+  ];
+
   /// Section Widget
-  Widget _buildRestaurantListgrid(BuildContext context) {
+  Widget _buildRestaurantListgrid(
+    BuildContext context,
+  ) {
     return SizedBox(
       height: 510.h,
       width: MediaQuery.sizeOf(context).width,
@@ -57,7 +129,7 @@ class AppFood2FoodItemsScreen extends StatelessWidget {
           crossAxisSpacing: 10.0, // Set the spacing between items horizontally
           mainAxisSpacing: 10.0, // Set the spacing between items vertically
         ),
-        itemCount: 8, // Set the total number of items
+        itemCount: imageUrls.length, // Set the total number of items
         itemBuilder: (BuildContext context, int index) {
           return Container(
             width: 143.h,
@@ -73,15 +145,25 @@ class AppFood2FoodItemsScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
+                // ClipRRect(
+                //   borderRadius: BorderRadius.all(Radius.circular(10)),
+                //   child: CustomImageView(
+                //     // You can modify this part to load different images based on the index
+                //     imagePath: index % 2 == 0
+                //         ? ImageConstant.imgRectangle88
+                //         : ImageConstant.imgRectangle89,
+                //     height: 128.v,
+                //     width: 132.h,
+                //   ),
+                // ),
+
                 ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(10)),
-                  child: CustomImageView(
-                    // You can modify this part to load different images based on the index
-                    imagePath: index % 2 == 0
-                        ? ImageConstant.imgRectangle88
-                        : ImageConstant.imgRectangle89,
+                  child: Image.network(
+                    imageUrls[index],
                     height: 128.v,
                     width: 132.h,
+                    fit: BoxFit.cover,
                   ),
                 ),
                 SizedBox(

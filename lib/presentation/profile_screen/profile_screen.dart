@@ -20,6 +20,64 @@ class ProfileScreen extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          backgroundColor: Theme.of(context).colorScheme.onSecondaryContainer,
+          title: GestureDetector(
+            onTap: () {
+//              Navigator.push(context, SizeTransition4(SearchPage()));
+              // Navigator.of(context)
+              //     .push(MaterialPageRoute(builder: (_) => const SearchPage()));
+            },
+            child: Row(
+              children: [
+                Expanded(
+                  child: Container(
+                      height: 45,
+                      decoration: AppDecoration.fillOnPrimaryContainer.copyWith(
+                        borderRadius: BorderRadiusStyle.roundedBorder7,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'TakeAway.com....',
+                              style:
+                                  CustomTextStyles.titleSmallPoppinsBluegray800,
+                            ),
+                            IconButton(
+                                onPressed: () {},
+                                icon: const Icon(
+                                  Icons.search,
+                                  size: 15,
+                                  color: Color(0XFF0274BC),
+                                )),
+                          ],
+                        ),
+                      )),
+                ),
+              ],
+            ),
+          ),
+          actions: [
+            // Navigate to the Search Screen
+
+            IconButton(
+              icon: const Icon(
+                Icons.notification_add,
+                size: 25,
+                color: Colors.white,
+              ),
+              onPressed: () {},
+            ),
+            SizedBox(
+              width: 10,
+            ),
+          ],
+        ),
         body: SizedBox(
           width: double.maxFinite,
           child: Column(
@@ -32,7 +90,7 @@ class ProfileScreen extends StatelessWidget {
                     children: [
                       _buildSearch(context),
                       Padding(
-                        padding: EdgeInsets.only(left: 10.h, right: 10.h),
+                        padding: EdgeInsets.only(left: 15.h, right: 15.h),
                         child: Column(
                           children: [
                             GestureDetector(
@@ -117,130 +175,102 @@ class ProfileScreen extends StatelessWidget {
 
   /// Section Widget
   Widget _buildSearch(BuildContext context) {
-    return SizedBox(
-      height: 246.v,
-      width: double.maxFinite,
-      child: Stack(
-        alignment: Alignment.topLeft,
-        children: [
-          Align(
-            alignment: Alignment.topRight,
-            child: Padding(
-              padding: EdgeInsets.only(right: 52.h),
-              child: Text(
-                "lbl_search".tr,
-                style: theme.textTheme.headlineLarge,
-              ),
-            ),
-          ),
-          Align(
-            alignment: Alignment.topLeft,
-            child: Container(
-              height: 34.v,
-              width: 186.h,
-              margin: EdgeInsets.only(
-                left: 16.h,
-                top: 2.v,
-              ),
-              decoration: BoxDecoration(
-                color: appTheme.blueGray100,
-              ),
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              padding: EdgeInsets.symmetric(vertical: 8.v),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(height: 1.v),
-                  Padding(
-                    padding: EdgeInsets.only(left: 8.h, right: 8.h, top: 20.h),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+    return Stack(
+      alignment: Alignment.topLeft,
+      children: [
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            padding: EdgeInsets.symmetric(vertical: 8.v),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(height: 1.v),
+                Padding(
+                  padding: EdgeInsets.only(left: 8.h, right: 8.h, top: 20.h),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "lbl_poppins".tr,
+                            style: CustomTextStyles
+                                .headlineSmallOnPrimaryContainer,
+                          ),
+                          Text(
+                            "lbl_91_555555555".tr,
+                            style: CustomTextStyles.bodyMediumRobotoWhite900,
+                          ),
+                          Text(
+                            "msg_order_takeaway_com".tr,
+                            style: CustomTextStyles.bodyMediumRobotoWhite900,
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 87.v,
+                        width: 87.h,
+                        child: Stack(
+                          alignment: Alignment.center,
                           children: [
-                            Text(
-                              "lbl_poppins".tr,
-                              style: CustomTextStyles
-                                  .headlineSmallOnPrimaryContainer,
-                            ),
-                            Text(
-                              "lbl_91_555555555".tr,
-                              style: CustomTextStyles.bodyMediumRobotoWhite900,
-                            ),
-                            Text(
-                              "msg_order_takeaway_com".tr,
-                              style: CustomTextStyles.bodyMediumRobotoWhite900,
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 87.v,
-                          width: 87.h,
-                          child: Stack(
-                            alignment: Alignment.center,
-                            children: [
-                              Align(
-                                alignment: Alignment.centerRight,
-                                child: Container(
-                                  height: 99.v,
-                                  width: 100.h,
-                                  margin: EdgeInsets.only(right: 1.h),
-                                  decoration: BoxDecoration(
-                                    color: appTheme.gray90001,
-                                    borderRadius: BorderRadius.circular(
-                                      50.h,
-                                    ),
+                            Align(
+                              alignment: Alignment.centerRight,
+                              child: Container(
+                                height: 99.v,
+                                width: 100.h,
+                                margin: EdgeInsets.only(right: 1.h),
+                                decoration: BoxDecoration(
+                                  color: appTheme.gray90001,
+                                  borderRadius: BorderRadius.circular(
+                                    50.h,
                                   ),
                                 ),
                               ),
-                              CustomImageView(
-                                imagePath: ImageConstant.imgDj1,
-                                height: 117.v,
-                                width: 109.h,
-                                alignment: Alignment.center,
-                              ),
-                            ],
-                          ),
+                            ),
+                            CustomImageView(
+                              imagePath: ImageConstant.imgDj1,
+                              height: 117.v,
+                              width: 109.h,
+                              alignment: Alignment.center,
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  SizedBox(height: 42.v),
-                  Padding(
-                    padding: EdgeInsets.only(top: 11.v, left: 10, right: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "lbl_view_activity".tr,
-                          style: CustomTextStyles
-                              .bodyMediumPoppinsOnPrimaryContainer14
-                              .copyWith(
-                            decoration: TextDecoration.underline,
-                          ),
+                ),
+                SizedBox(height: 42.v),
+                Padding(
+                  padding: EdgeInsets.only(top: 11.v, left: 10, right: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "lbl_view_activity".tr,
+                        style: CustomTextStyles
+                            .bodyMediumPoppinsOnPrimaryContainer14
+                            .copyWith(
+                          decoration: TextDecoration.underline,
                         ),
-                        CustomImageView(
-                          imagePath: ImageConstant.imgEdit,
-                          height: 24.v,
-                          width: 22.h,
-                          margin: EdgeInsets.only(bottom: 7.v),
-                        ),
-                      ],
-                    ),
+                      ),
+                      CustomImageView(
+                        imagePath: ImageConstant.imgEdit,
+                        height: 24.v,
+                        width: 22.h,
+                        margin: EdgeInsets.only(bottom: 7.v),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 

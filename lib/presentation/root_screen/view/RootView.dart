@@ -2,6 +2,7 @@ import 'package:cusmerraj/presentation/app_food1_restaurants_screen/app_food1_re
 import 'package:cusmerraj/presentation/app_food2_food_items_screen/app_food2_food_items_screen.dart';
 import 'package:cusmerraj/presentation/app_food3_checkout_screen/app_food3_checkout_screen.dart';
 import 'package:cusmerraj/presentation/app_food4_checkout_screen/app_food4_checkout_screen.dart';
+import 'package:cusmerraj/presentation/app_home_all_screen/app_home_all_screen.dart';
 import 'package:cusmerraj/presentation/profile_screen/profile_screen.dart';
 import 'package:cusmerraj/presentation/root_screen/rootViewmodel/rootViewmodel.dart';
 import 'package:cusmerraj/theme/theme_helper.dart';
@@ -51,7 +52,8 @@ class _MynavigationbarState extends State<Mynavigationbar> {
           switch (index) {
             case 0:
               return CupertinoTabView(builder: (context) {
-                return AppFood2FoodItemsScreen();
+                return HomeScreen();
+                // return AppFood2FoodItemsScreen();
               });
             case 1:
               return CupertinoTabView(builder: (context) {

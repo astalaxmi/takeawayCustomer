@@ -20,6 +20,15 @@ class CustomTextStyles {
         fontSize: 16.fSize,
         fontWeight: FontWeight.w400,
       );
+  static BorderRadius get roundedBorder8 => BorderRadius.circular(
+        8.h,
+      );
+
+  static get titleSmallPoppinsBluegray800 =>
+      theme.textTheme.titleSmall!.poppins.copyWith(
+        color: appTheme.blueGray800,
+        fontWeight: FontWeight.w500,
+      );
   static get bodyLargeRobotoBlack900 =>
       theme.textTheme.bodyLarge!.roboto.copyWith(
         color: appTheme.black900,
@@ -177,6 +186,7 @@ class CustomTextStyles {
       );
   static get headlineSmallRobotoBlack900 =>
       theme.textTheme.headlineSmall!.roboto.copyWith(
+        fontSize: 16,
         color: appTheme.black900,
         fontWeight: FontWeight.w600,
       );
@@ -207,6 +217,7 @@ class CustomTextStyles {
         color: theme.colorScheme.onPrimaryContainer,
         fontWeight: FontWeight.w700,
       );
+
   static get titleLargePoppinsOnSecondaryContainer =>
       theme.textTheme.titleLarge!.poppins.copyWith(
         color: theme.colorScheme.onSecondaryContainer,
@@ -219,6 +230,7 @@ class CustomTextStyles {
         fontWeight: FontWeight.w500,
       );
   static get titleLargeRoboto => theme.textTheme.titleLarge!.roboto.copyWith(
+        fontSize: 15,
         fontWeight: FontWeight.w600,
       );
   static get titleLargeRobotoBold =>
@@ -302,4 +314,22 @@ extension on TextStyle {
       fontFamily: 'Poppins',
     );
   }
+}
+
+extension on BorderRadiusStyle {
+  // Circle borders
+  static BorderRadius get circleBorder15 => BorderRadius.circular(
+        15.h,
+      );
+
+  // Rounded borders
+  static BorderRadius get roundedBorder24 => BorderRadius.circular(
+        24.h,
+      );
+  static BorderRadius get roundedBorder35 => BorderRadius.circular(
+        35.h,
+      );
+  static BorderRadius get roundedBorder8 => BorderRadius.circular(
+        8.h,
+      );
 }

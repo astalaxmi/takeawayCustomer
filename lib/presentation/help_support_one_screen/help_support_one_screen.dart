@@ -16,6 +16,52 @@ class HelpSupportOneScreen extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          backgroundColor: Theme.of(context).colorScheme.onSecondaryContainer,
+          leading: IconButton(
+            icon: const Icon(
+              Icons.arrow_back_ios_new,
+              size: 30,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+          title: Row(
+            children: [
+              Expanded(
+                child: Container(
+                    height: 45,
+                    decoration: AppDecoration.fillOnPrimaryContainer.copyWith(
+                      borderRadius: BorderRadiusStyle.roundedBorder7,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'TakeAway.com....',
+                            style:
+                                CustomTextStyles.titleSmallPoppinsBluegray800,
+                          ),
+                          IconButton(
+                              onPressed: () {},
+                              icon: const Icon(
+                                Icons.search,
+                                size: 15,
+                                color: Color(0XFF0274BC),
+                              )),
+                        ],
+                      ),
+                    )),
+              ),
+            ],
+          ),
+        ),
         body: Padding(
           padding: const EdgeInsets.all(15.0),
           child: Column(
@@ -25,8 +71,7 @@ class HelpSupportOneScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _buildSearchRow(context),
-                    SizedBox(height: 35.v),
+                    SizedBox(height: 30.v),
                     Center(
                       child: Container(
                         decoration: AppDecoration.outlineGrayF,

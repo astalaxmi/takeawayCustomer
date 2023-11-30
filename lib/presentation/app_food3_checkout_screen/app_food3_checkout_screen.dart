@@ -23,6 +23,64 @@ class AppFood3CheckoutScreen extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          backgroundColor: Theme.of(context).colorScheme.onSecondaryContainer,
+          title: GestureDetector(
+            onTap: () {
+//              Navigator.push(context, SizeTransition4(SearchPage()));
+              // Navigator.of(context)
+              //     .push(MaterialPageRoute(builder: (_) => const SearchPage()));
+            },
+            child: Row(
+              children: [
+                Expanded(
+                  child: Container(
+                      height: 45,
+                      decoration: AppDecoration.fillOnPrimaryContainer.copyWith(
+                        borderRadius: BorderRadiusStyle.roundedBorder7,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'TakeAway.com....',
+                              style:
+                                  CustomTextStyles.titleSmallPoppinsBluegray800,
+                            ),
+                            IconButton(
+                                onPressed: () {},
+                                icon: const Icon(
+                                  Icons.search,
+                                  size: 15,
+                                  color: Color(0XFF0274BC),
+                                )),
+                          ],
+                        ),
+                      )),
+                ),
+              ],
+            ),
+          ),
+          actions: [
+            // Navigate to the Search Screen
+
+            IconButton(
+              icon: const Icon(
+                Icons.notification_add,
+                size: 25,
+                color: Colors.white,
+              ),
+              onPressed: () {},
+            ),
+            SizedBox(
+              width: 10,
+            ),
+          ],
+        ),
         resizeToAvoidBottomInset: false,
         body: Padding(
           padding: const EdgeInsets.all(15.0),
@@ -33,8 +91,7 @@ class AppFood3CheckoutScreen extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      _buildView(context),
-                      SizedBox(height: 19.v),
+                      SizedBox(height: 14.v),
                       Center(
                         child: Text(
                           "lbl_checkout".tr,

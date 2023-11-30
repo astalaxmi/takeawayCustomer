@@ -19,6 +19,64 @@ class _AppFood1RestaurantsScreenState extends State<AppFood1RestaurantsScreen> {
 
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          backgroundColor: Theme.of(context).colorScheme.onSecondaryContainer,
+          title: GestureDetector(
+            onTap: () {
+//              Navigator.push(context, SizeTransition4(SearchPage()));
+              // Navigator.of(context)
+              //     .push(MaterialPageRoute(builder: (_) => const SearchPage()));
+            },
+            child: Row(
+              children: [
+                Expanded(
+                  child: Container(
+                      height: 45,
+                      decoration: AppDecoration.fillOnPrimaryContainer.copyWith(
+                        borderRadius: BorderRadiusStyle.roundedBorder7,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'TakeAway.com....',
+                              style:
+                                  CustomTextStyles.titleSmallPoppinsBluegray800,
+                            ),
+                            IconButton(
+                                onPressed: () {},
+                                icon: const Icon(
+                                  Icons.search,
+                                  size: 15,
+                                  color: Color(0XFF0274BC),
+                                )),
+                          ],
+                        ),
+                      )),
+                ),
+              ],
+            ),
+          ),
+          actions: [
+            // Navigate to the Search Screen
+
+            IconButton(
+              icon: const Icon(
+                Icons.notification_add,
+                size: 25,
+                color: Colors.white,
+              ),
+              onPressed: () {},
+            ),
+            SizedBox(
+              width: 10,
+            ),
+          ],
+        ),
         body: Padding(
           padding: const EdgeInsets.all(15.0),
           child: Column(
@@ -28,7 +86,6 @@ class _AppFood1RestaurantsScreenState extends State<AppFood1RestaurantsScreen> {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      _buildView(context),
                       SizedBox(height: 14.v),
                       Center(
                         child: RichText(
@@ -64,6 +121,46 @@ class _AppFood1RestaurantsScreenState extends State<AppFood1RestaurantsScreen> {
     );
   }
 
+  List<Map<String, dynamic>> restaurantData = [
+    {
+      'imageUrl':
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThQ3qiewOGxls_l7eZrk39Un6Vvr9MDklUMA&usqp=CAU",
+      'userName': 'msg_lentil_bolognese1'.tr,
+    },
+    {
+      'imageUrl':
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYVdV2TgDvdhiM5024UgDBmx6_qhX9sfQICw&usqp=CAU',
+      'userName': 'Dosaa '.tr,
+    },
+
+    {
+      'imageUrl':
+          "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSTIscDql61gG4aCsn4z0FeA7lK-sb9OwQyDgJ50NlI_EXcCrJ6-VR6mi3tJtu_aXr9_IBZdRtj_Q-lIS1T0TTLFUV0XMExQEVB3iIFlmyHlEjMTa3ENH4Npg&usqp=CAE",
+      'userName': 'Dosaa '.tr,
+    },
+    {
+      'imageUrl':
+          "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcT-P-VEGZnMzV6HPiqKgZXhVdu_aWVeRMDfM20ciz7fTBgLiasb7XZYJZWnFnV4MSMMoCfu4w2CCfJbBmfR7zMKRfReA24WorDeMTD0oQI&usqp=CAE",
+      'userName': 'Dosaa '.tr,
+    },
+    {
+      'imageUrl':
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpu8KaXdLzzcMMYCW1-Ob8Lcgd43O_z6Omfg&usqp=CAU",
+      'userName': 'Dosaa '.tr,
+    },
+    {
+      'imageUrl':
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1QvVsOFZCJ3qKhwZsseERR2UWLGmwrgHWhw&usqp=CAU",
+      'userName': 'Dosaa '.tr,
+    },
+    {
+      'imageUrl':
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-QrEfl7PfS875O8oxn6XSXpHiMxOsd4B2Lw&usqp=CAU",
+      'userName': 'Dosaa '.tr,
+    }
+    // Add more restaurant data as needed
+  ];
+
   /// Section Widget
   Widget _buildRestaurantListgrid(BuildContext context) {
     return SizedBox(
@@ -75,8 +172,9 @@ class _AppFood1RestaurantsScreenState extends State<AppFood1RestaurantsScreen> {
           crossAxisSpacing: 10.0, // Set the spacing between items horizontally
           mainAxisSpacing: 10.0, // Set the spacing between items vertically
         ),
-        itemCount: 8, // Set the total number of items
+        itemCount: restaurantData.length,
         itemBuilder: (BuildContext context, int index) {
+          Map<String, dynamic> restaurant = restaurantData[index];
           return Container(
               decoration: BoxDecoration(
                 border: Border.all(
@@ -93,8 +191,8 @@ class _AppFood1RestaurantsScreenState extends State<AppFood1RestaurantsScreen> {
                 children: [
                   _buildSeventeen(
                     context,
-                    userImage: ImageConstant.imgRectangle17,
-                    userName: "msg_lentil_bolognese".tr,
+                    userImage: restaurant['imageUrl'],
+                    userName: restaurant['userName'],
                   ),
                   SizedBox(
                     height: 5,
@@ -154,7 +252,10 @@ class _AppFood1RestaurantsScreenState extends State<AppFood1RestaurantsScreen> {
                               onTap: () {
                                 decrementCounter();
                               },
-                              child: Icon(Icons.remove)),
+                              child: Icon(
+                                Icons.remove,
+                                color: Colors.white,
+                              )),
                           Container(
                             height: 20.v,
                             width: 23.h,
@@ -175,7 +276,10 @@ class _AppFood1RestaurantsScreenState extends State<AppFood1RestaurantsScreen> {
                               onTap: () {
                                 incrementCounter();
                               },
-                              child: Icon(Icons.add)),
+                              child: Icon(
+                                Icons.add,
+                                color: Colors.white,
+                              )),
                         ],
                       ),
                     ],
@@ -229,46 +333,44 @@ class _AppFood1RestaurantsScreenState extends State<AppFood1RestaurantsScreen> {
     required String userImage,
     required String userName,
   }) {
-    return Column(
+    return Stack(
+      alignment: Alignment.bottomLeft,
       children: [
-        SizedBox(
-          height: 3,
-        ),
-        Stack(
-          alignment: Alignment.bottomLeft,
+        Column(
           children: [
-            CustomImageView(
-              imagePath: userImage,
-              height: 120.v,
-              width: 240.h,
-              radius: BorderRadius.circular(
-                10.h,
-              ),
-            ),
-            Align(
-              alignment: Alignment.bottomLeft,
-              child: Container(
-                width: 54.h,
-                margin: EdgeInsets.only(
-                  left: 6.h,
-                  bottom: 6.v,
-                ),
-                padding: EdgeInsets.symmetric(
-                  horizontal: 3.h,
-                  vertical: 1.v,
-                ),
-                decoration: AppDecoration.fillGray.copyWith(
-                  borderRadius: BorderRadiusStyle.roundedBorder7,
-                ),
-                child: Text(
-                  userName,
-                  style: CustomTextStyles.bodySmall8.copyWith(
-                    color: appTheme.black900,
-                  ),
+            Center(
+              child: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+                child: Image.network(
+                  userImage,
+                  height: 128.v,
+                  width: 152.h,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
           ],
+        ),
+        Align(
+          alignment: Alignment.bottomLeft,
+          child: Container(
+            margin: EdgeInsets.only(
+              left: 6.h,
+              bottom: 6.v,
+            ),
+            decoration: AppDecoration.fillGray.copyWith(
+              borderRadius: BorderRadiusStyle.roundedBorder5,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                userName,
+                style: CustomTextStyles.bodySmall8.copyWith(
+                  color: appTheme.black900,
+                ),
+              ),
+            ),
+          ),
         ),
       ],
     );

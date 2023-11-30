@@ -91,7 +91,7 @@ class TakeawayRegistrationtwoScreen extends StatelessWidget {
                   text: "lbl_next".tr,
                   onPressed: () {
                     Navigator.pushNamed(
-                        context, AppRoutes.takeawayRegistrationfiveScreen);
+                        context, AppRoutes.takeawayRegistrationfourScreen);
                   },
                 ),
               ],
