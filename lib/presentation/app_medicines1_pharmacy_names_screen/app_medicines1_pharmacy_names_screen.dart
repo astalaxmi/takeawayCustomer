@@ -46,7 +46,6 @@ class AppMedicines1PharmacyNamesScreen extends StatelessWidget {
                         SizedBox(height: 2.v),
                         _buildPharmacyCounters3(context),
                         SizedBox(height: 91.v),
-                        _buildAppNavigation(context),
                       ],
                     ),
                   ),

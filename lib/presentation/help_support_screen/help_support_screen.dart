@@ -1,7 +1,9 @@
 import 'package:cusmerraj/core/app_export.dart';
+import 'package:cusmerraj/widgets/app_text/app_text.dart';
 import 'package:cusmerraj/widgets/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart' as fs;
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HelpSupportScreen extends StatelessWidget {
   const HelpSupportScreen({Key? key})
@@ -17,10 +19,9 @@ class HelpSupportScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: Theme.of(context).colorScheme.onSecondaryContainer,
           leading: IconButton(
             icon: const Icon(
-              Icons.arrow_back_ios_new,
+              Icons.arrow_back,
               size: 30,
               color: Colors.white,
             ),
@@ -28,35 +29,25 @@ class HelpSupportScreen extends StatelessWidget {
               Navigator.pop(context);
             },
           ),
+          backgroundColor: Theme.of(context).colorScheme.onSecondaryContainer,
           title: Row(
             children: [
-              Expanded(
-                child: Container(
-                    height: 45,
-                    decoration: AppDecoration.fillOnPrimaryContainer.copyWith(
-                      borderRadius: BorderRadiusStyle.roundedBorder7,
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'TakeAway.com....',
-                            style:
-                                CustomTextStyles.titleSmallPoppinsBluegray800,
-                          ),
-                          IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons.search,
-                                size: 15,
-                                color: Color(0XFF0274BC),
-                              )),
-                        ],
-                      ),
-                    )),
+              CustomImageView(
+                imagePath: ImageConstant.imgHelpCircleGray90001,
+                height: 15.v,
+                width: 15.h,
+                color: Colors.white,
+              ),
+              SizedBox(
+                width: 15,
+              ),
+              AppText(
+                "lbl_help_support".tr,
+                style: TextStyle(
+                  fontSize: 15,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ],
           ),
@@ -140,6 +131,18 @@ class HelpSupportScreen extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.blue,
+          onPressed: () {
+            // Your action when the button is pressed
+            print('Button pressed!');
+          },
+          child: Icon(
+            Icons.search,
+            size: 30,
+            color: Colors.white,
           ),
         ),
       ),

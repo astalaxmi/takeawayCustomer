@@ -182,7 +182,6 @@ class AppTheatre1NamesScreen extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: 95.v),
-                        _buildHome(context),
                       ],
                     ),
                   ),

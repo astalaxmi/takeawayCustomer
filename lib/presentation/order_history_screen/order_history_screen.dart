@@ -1,3 +1,5 @@
+import 'package:cusmerraj/widgets/app_text/app_text.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get_core/get_core.dart';
 
 import '../order_history_screen/widgets/orderhistorylist_item_widget.dart';
@@ -19,10 +21,9 @@ class OrderHistoryScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: Theme.of(context).colorScheme.onSecondaryContainer,
           leading: IconButton(
             icon: const Icon(
-              Icons.arrow_back_ios_new,
+              Icons.arrow_back,
               size: 30,
               color: Colors.white,
             ),
@@ -30,35 +31,25 @@ class OrderHistoryScreen extends StatelessWidget {
               Navigator.pop(context);
             },
           ),
+          backgroundColor: Theme.of(context).colorScheme.onSecondaryContainer,
           title: Row(
             children: [
-              Expanded(
-                child: Container(
-                    height: 45,
-                    decoration: AppDecoration.fillOnPrimaryContainer.copyWith(
-                      borderRadius: BorderRadiusStyle.roundedBorder7,
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'TakeAway.com....',
-                            style:
-                                CustomTextStyles.titleSmallPoppinsBluegray800,
-                          ),
-                          IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons.search,
-                                size: 15,
-                                color: Color(0XFF0274BC),
-                              )),
-                        ],
-                      ),
-                    )),
+              CustomImageView(
+                imagePath: ImageConstant.imgShoppingBag,
+                height: 15.v,
+                width: 15.h,
+                color: Colors.white,
+              ),
+              SizedBox(
+                width: 15,
+              ),
+              AppText(
+                'lbl_order_history'.tr,
+                style: TextStyle(
+                  fontSize: 15,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ],
           ),
@@ -108,6 +99,18 @@ class OrderHistoryScreen extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.blue,
+          onPressed: () {
+            // Your action when the button is pressed
+            print('Button pressed!');
+          },
+          child: Icon(
+            Icons.search,
+            size: 30,
+            color: Colors.white,
           ),
         ),
       ),

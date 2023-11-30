@@ -1,3 +1,6 @@
+import 'package:cusmerraj/presentation/app_medicines1_pharmacy_names_screen/app_medicines1_pharmacy_names_screen.dart';
+import 'package:cusmerraj/presentation/app_medicines2_medicine_names_screen/app_medicines2_medicine_names_screen.dart';
+import 'package:cusmerraj/presentation/app_theatre1_names_screen/app_theatre1_names_screen.dart';
 import 'package:cusmerraj/theme/theme_helper.dart';
 import 'package:flutter/material.dart';
 
@@ -15,16 +18,57 @@ class CategoryGrid extends StatelessWidget {
       ),
       children: [
         categoryPanel(context, Icons.shopping_basket, 'Food Delivery'),
-        categoryPanel(context, Icons.medical_services, 'Medicines'),
-        categoryPanel(
-          context,
-          Icons.health_and_safety_rounded,
-          'Health and Wealth',
+        GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => AppMedicines2MedicineNamesScreen()),
+              );
+              // Handle onTap for Food Delivery category
+              print('Food Delivery tapped!');
+            },
+            child: categoryPanel(context, Icons.medical_services, 'Medicines')),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => AppMedicines1PharmacyNamesScreen()),
+            );
+            // Handle onTap for Food Delivery category
+            print('Food Delivery tapped!');
+          },
+          child: categoryPanel(
+            context,
+            Icons.health_and_safety_rounded,
+            'Health and Wealth',
+          ),
         ),
-        categoryPanel(
-          context,
-          Icons.card_giftcard_sharp,
-          'Theatres & enjoy',
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const AppTheatre1NamesScreen()),
+            );
+            // Handle onTap for Food Delivery category
+            print('Food Delivery tapped!');
+          },
+          child: categoryPanel(
+            context,
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const AppTheatre1NamesScreen()),
+              );
+              // Handle onTap for Food Delivery category
+              print('Food Delivery tapped!');
+            },
+            Icons.card_giftcard_sharp,
+            'Theatres & enjoy',
+          ),
         ),
         categoryPanel(
           context,
@@ -40,6 +84,7 @@ class CategoryGrid extends StatelessWidget {
     BuildContext context,
     IconData icon,
     String title, {
+    VoidCallback? onTap,
     // String routeName = StoreListScreen.routeName,
     bool showDetailedScreen = true,
   }) {

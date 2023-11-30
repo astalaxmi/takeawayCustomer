@@ -236,7 +236,7 @@ class TakeawayRegistrationsixScreen extends StatelessWidget {
     return CustomElevatedButton(
       text: "lbl_s_gn_in".tr,
       onPressed: () {
-        Navigator.pushNamed(context, AppRoutes.appLoginHomepageScreen);
+        Navigator.pushNamed(context, AppRoutes.approotScreen);
       },
     );
   }

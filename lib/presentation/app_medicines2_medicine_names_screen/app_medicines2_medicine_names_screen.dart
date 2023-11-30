@@ -30,7 +30,6 @@ class AppMedicines2MedicineNamesScreen extends StatelessWidget {
                 SizedBox(height: 10.v),
                 _buildParacetamol1(context),
                 SizedBox(height: 4.v),
-                _buildText(context),
               ],
             ),
           ),
@@ -45,7 +44,6 @@ class AppMedicines2MedicineNamesScreen extends StatelessWidget {
       title: Container(
         height: 124.72.v,
         width: 221.h,
-        margin: EdgeInsets.only(left: 16.h),
         child: Stack(
           alignment: Alignment.bottomLeft,
           children: [

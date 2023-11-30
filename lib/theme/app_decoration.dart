@@ -32,7 +32,7 @@ class AppDecoration {
         ),
       );
   static BoxDecoration get outlineGray4003f => BoxDecoration(
-        color: appTheme.amber700,
+        color: Colors.orange.shade300,
         borderRadius: BorderRadiusStyle.roundedBorder7,
         boxShadow: [
           BoxShadow(

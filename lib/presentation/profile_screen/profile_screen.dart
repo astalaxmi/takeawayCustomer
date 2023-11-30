@@ -1,174 +1,157 @@
 import 'package:cusmerraj/core/app_export.dart';
+import 'package:cusmerraj/presentation/app_order_screen/components/custom_appbar_order.dart';
 import 'package:cusmerraj/presentation/favourites_screen/favourites_screen.dart';
 import 'package:cusmerraj/presentation/help_support_screen/help_support_screen.dart';
 import 'package:cusmerraj/presentation/order_history_screen/order_history_screen.dart';
+import 'package:cusmerraj/widgets/app_text/app_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart' as fs;
 
 import '../help_support_one_screen/help_support_one_screen.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key})
       : super(
           key: key,
         );
 
   @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen>
+    with SingleTickerProviderStateMixin {
+  late ScrollController _scrollController;
+  late AnimationController _animationController;
+  late Animation<double> _fadeAnimation;
+
+  bool get _isAppBarExpanded {
+    return _scrollController.hasClients &&
+        _scrollController.offset > (135 - 75);
+  }
+
+  @override
+  void initState() {
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 200),
+    );
+    _scrollController = ScrollController()
+      ..addListener(() {
+        _isAppBarExpanded
+            ? _animationController.forward()
+            : _animationController.reverse();
+      });
+    _fadeAnimation = Tween<double>(begin: 0, end: 1).animate(
+      CurvedAnimation(
+        parent: _animationController,
+        curve: Curves.easeInOut,
+      ),
+    );
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    mediaQueryData = MediaQuery.of(context);
+    return Scaffold(
+      backgroundColor: theme.colorScheme.onSecondaryContainer,
+      body: NestedScrollView(
+        controller: _scrollController,
+        headerSliverBuilder: (context, innerBoxIsScrolled) => [
+          CustomAppBarOrder(_fadeAnimation),
+        ],
+        body: Body(),
+      ),
+    );
+  }
 
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          backgroundColor: Theme.of(context).colorScheme.onSecondaryContainer,
-          title: GestureDetector(
-            onTap: () {
-//              Navigator.push(context, SizeTransition4(SearchPage()));
-              // Navigator.of(context)
-              //     .push(MaterialPageRoute(builder: (_) => const SearchPage()));
-            },
-            child: Row(
-              children: [
-                Expanded(
-                  child: Container(
-                      height: 45,
-                      decoration: AppDecoration.fillOnPrimaryContainer.copyWith(
-                        borderRadius: BorderRadiusStyle.roundedBorder7,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'TakeAway.com....',
-                              style:
-                                  CustomTextStyles.titleSmallPoppinsBluegray800,
-                            ),
-                            IconButton(
-                                onPressed: () {},
-                                icon: const Icon(
-                                  Icons.search,
-                                  size: 15,
-                                  color: Color(0XFF0274BC),
-                                )),
-                          ],
+  Widget Body() {
+    return SizedBox(
+      width: double.maxFinite,
+      child: Column(
+        children: [
+          SizedBox(height: 4.v),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildSearch(context),
+                  Padding(
+                    padding: EdgeInsets.only(left: 15.h, right: 15.h),
+                    child: Column(
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              CupertinoPageRoute(
+                                  builder: (context) =>
+                                      const OrderHistoryScreen()),
+                            );
+                          },
+                          child: _buildSeventyOne(
+                            context,
+                            truckImage: ImageConstant.imgShoppingBag,
+                            trackOrderText: "lbl_order_history".tr,
+                          ),
                         ),
-                      )),
-                ),
-              ],
-            ),
-          ),
-          actions: [
-            // Navigate to the Search Screen
-
-            IconButton(
-              icon: const Icon(
-                Icons.notification_add,
-                size: 25,
-                color: Colors.white,
-              ),
-              onPressed: () {},
-            ),
-            SizedBox(
-              width: 10,
-            ),
-          ],
-        ),
-        body: SizedBox(
-          width: double.maxFinite,
-          child: Column(
-            children: [
-              SizedBox(height: 4.v),
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      _buildSearch(context),
-                      Padding(
-                        padding: EdgeInsets.only(left: 15.h, right: 15.h),
-                        child: Column(
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  CupertinoPageRoute(
-                                      builder: (context) =>
-                                          const OrderHistoryScreen()),
-                                );
-                              },
-                              child: _buildSeventyOne(
-                                context,
-                                truckImage: ImageConstant.imgShoppingBag,
-                                trackOrderText: "lbl_order_history".tr,
-                              ),
-                            ),
-                            SizedBox(height: 17.v),
-                            SizedBox(height: 11.v),
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  CupertinoPageRoute(
-                                      builder: (context) =>
-                                          const HelpSupportOneScreen()),
-                                );
-                              },
-                              child: _buildSeventyOne(
-                                context,
-                                truckImage: ImageConstant.imgTruck,
-                                trackOrderText: "lbl_track_order".tr,
-                              ),
-                            ),
-                            SizedBox(height: 17.v),
-                            SizedBox(height: 11.v),
-                            _buildSixtyNine(context),
-                            SizedBox(height: 17.v),
-                            SizedBox(height: 11.v),
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  CupertinoPageRoute(
-                                      builder: (context) =>
-                                          const HelpSupportScreen()),
-                                );
-                              },
-                              child: _buildSeventyOne(
-                                context,
-                                truckImage: ImageConstant.imgHelpCircle,
-                                trackOrderText: "HelpSupportScreen".tr,
-                              ),
-                            ),
-                            SizedBox(height: 17.v),
-                            SizedBox(height: 11.v),
-                            GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    CupertinoPageRoute(
-                                        builder: (context) =>
-                                            const HelpSupportOneScreen()),
-                                  );
-                                },
-                                child: _buildArrowRight(context)),
-                            SizedBox(height: 96.v),
-                          ],
+                        SizedBox(height: 17.v),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              CupertinoPageRoute(
+                                  builder: (context) =>
+                                      const HelpSupportOneScreen()),
+                            );
+                          },
+                          child: _buildSeventyOne(
+                            context,
+                            truckImage: ImageConstant.imgTruck,
+                            trackOrderText: "lbl_track_order".tr,
+                          ),
                         ),
-                      ),
-                      //_buildHome(context),
-                    ],
+                        SizedBox(height: 17.v),
+                        _buildSixtyNine(context),
+                        SizedBox(height: 17.v),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              CupertinoPageRoute(
+                                  builder: (context) =>
+                                      const HelpSupportScreen()),
+                            );
+                          },
+                          child: _buildSeventyOne(
+                            context,
+                            truckImage: ImageConstant.imgHelpCircle,
+                            trackOrderText: "HelpSupportScreen".tr,
+                          ),
+                        ),
+                        SizedBox(height: 17.v),
+                        GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                CupertinoPageRoute(
+                                    builder: (context) =>
+                                        const HelpSupportOneScreen()),
+                              );
+                            },
+                            child: _buildArrowRight(context)),
+                        SizedBox(height: 96.v),
+                      ],
+                    ),
                   ),
-                ),
+                  //_buildHome(context),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
@@ -187,7 +170,7 @@ class ProfileScreen extends StatelessWidget {
               children: [
                 SizedBox(height: 1.v),
                 Padding(
-                  padding: EdgeInsets.only(left: 8.h, right: 8.h, top: 20.h),
+                  padding: EdgeInsets.only(left: 8.h, right: 8.h, top: 5.h),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -373,6 +356,13 @@ class ProfileScreen extends StatelessWidget {
                       "lbl_feedback".tr,
                       style: CustomTextStyles.bodyLargeGray90001,
                     ),
+                  ),
+                  Spacer(),
+                  CustomImageView(
+                    imagePath: ImageConstant.imgArrowRight,
+                    height: 23.v,
+                    width: 22.h,
+                    margin: EdgeInsets.symmetric(vertical: 3.v),
                   ),
                 ],
               ),

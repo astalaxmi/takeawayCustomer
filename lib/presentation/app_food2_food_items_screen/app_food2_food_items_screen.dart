@@ -163,12 +163,12 @@ class AppFood2FoodItemsScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 5,
                 ),
                 Text(
                   index % 2 == 0 ? "lbl_restaurant1".tr : "lbl_restaurant2".tr,
                   style: theme.textTheme.labelLarge!.copyWith(
-                    color: theme.colorScheme.onInverseSurface,
+                    color: Colors.white,
                   ),
                 ),
               ],

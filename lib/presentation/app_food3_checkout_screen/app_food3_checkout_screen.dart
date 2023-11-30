@@ -1,9 +1,11 @@
 import 'package:cusmerraj/core/app_export.dart';
+import 'package:cusmerraj/widgets/app_text/app_text.dart';
 import 'package:cusmerraj/widgets/custom_elevated_button.dart';
 import 'package:cusmerraj/widgets/custom_radio_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart' as fs;
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../app_food4_checkout_screen/app_food4_checkout_screen.dart';
 
@@ -36,50 +38,42 @@ class AppFood3CheckoutScreen extends StatelessWidget {
               children: [
                 Expanded(
                   child: Container(
-                      height: 45,
-                      decoration: AppDecoration.fillOnPrimaryContainer.copyWith(
-                        borderRadius: BorderRadiusStyle.roundedBorder7,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'TakeAway.com....',
-                              style:
-                                  CustomTextStyles.titleSmallPoppinsBluegray800,
-                            ),
-                            IconButton(
-                                onPressed: () {},
-                                icon: const Icon(
-                                  Icons.search,
-                                  size: 15,
-                                  color: Color(0XFF0274BC),
-                                )),
-                          ],
+                    margin: EdgeInsets.fromLTRB(15, 0, 15, 12),
+                    padding: EdgeInsets.only(left: 15),
+                    height: 48,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(5),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.white,
+                          blurRadius: 3,
+                          // spreadRadius: 1,
                         ),
-                      )),
+                      ],
+                    ),
+                    child: Row(
+                      children: [
+                        FaIcon(
+                          FontAwesomeIcons.search,
+                          size: 18,
+                          color: Colors.blue,
+                        ),
+                        SizedBox(width: 10),
+                        AppText(
+                          'Search for store/item',
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),
           ),
-          actions: [
-            // Navigate to the Search Screen
-
-            IconButton(
-              icon: const Icon(
-                Icons.notification_add,
-                size: 25,
-                color: Colors.white,
-              ),
-              onPressed: () {},
-            ),
-            SizedBox(
-              width: 10,
-            ),
-          ],
         ),
         resizeToAvoidBottomInset: false,
         body: Padding(

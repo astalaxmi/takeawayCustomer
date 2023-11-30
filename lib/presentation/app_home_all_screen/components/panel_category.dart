@@ -53,7 +53,8 @@ class PanelCategory extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.all(15),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
                   width: 95,
