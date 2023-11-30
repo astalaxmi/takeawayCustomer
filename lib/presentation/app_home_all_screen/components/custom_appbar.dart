@@ -81,18 +81,11 @@ class CustomAppBar extends StatelessWidget {
           width: 35,
           alignment: Alignment.center,
           child: IconButton(
-            icon: FaIcon(
-              FontAwesomeIcons.user,
-              size: 18,
+            icon: const Icon(
+              Icons.notification_add,
               color: Colors.white,
             ),
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-            onPressed: () {
-              //   Navigator.of(context).pushNamed(
-              //   UserScreen.routeName,
-              // );
-            },
+            onPressed: () {},
           ),
         ),
         Container(

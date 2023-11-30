@@ -1,4 +1,5 @@
 import 'package:cusmerraj/core/app_export.dart';
+import 'package:cusmerraj/widgets/app_text/app_text.dart';
 import 'package:flutter/material.dart';
 
 class AppFood2FoodItemsScreen extends StatelessWidget {
@@ -26,28 +27,38 @@ class AppFood2FoodItemsScreen extends StatelessWidget {
               children: [
                 Expanded(
                   child: Container(
-                      height: 45,
-                      decoration: AppDecoration.fillOnPrimaryContainer.copyWith(
-                        borderRadius: BorderRadiusStyle.roundedBorder7,
+                      margin: EdgeInsets.fromLTRB(15, 0, 15, 12),
+                      padding: EdgeInsets.only(left: 15),
+                      height: 48,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(5),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.white,
+                            blurRadius: 3,
+                            // spreadRadius: 1,
+                          ),
+                        ],
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
-                              'TakeAway.com....',
-                              style:
-                                  CustomTextStyles.titleSmallPoppinsBluegray800,
-                            ),
                             IconButton(
                                 onPressed: () {},
                                 icon: const Icon(
                                   Icons.search,
-                                  size: 15,
+                                  size: 18,
                                   color: Color(0XFF0274BC),
                                 )),
+                            AppText(
+                              'Search for store/item',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
                           ],
                         ),
                       )),
@@ -55,21 +66,6 @@ class AppFood2FoodItemsScreen extends StatelessWidget {
               ],
             ),
           ),
-          actions: [
-            // Navigate to the Search Screen
-
-            IconButton(
-              icon: const Icon(
-                Icons.notification_add,
-                size: 25,
-                color: Colors.white,
-              ),
-              onPressed: () {},
-            ),
-            SizedBox(
-              width: 10,
-            ),
-          ],
         ),
         body: Padding(
           padding: const EdgeInsets.all(15.0),
