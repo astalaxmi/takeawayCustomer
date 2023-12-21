@@ -1,3 +1,4 @@
+import 'package:cusmerraj/theme/AppColors.dart';
 import 'package:cusmerraj/theme/theme_helper.dart';
 import 'package:cusmerraj/widgets/app_text/app_text.dart';
 import 'package:flutter/material.dart';
@@ -88,40 +89,16 @@ class CustomAppBar extends StatelessWidget {
             onPressed: () {},
           ),
         ),
-        Container(
-          width: 35,
-          margin: EdgeInsets.only(right: 15),
-          child: IconButton(
-            // constraints: BoxConstraints(maxWidth: 10),
-            icon: Stack(
-              clipBehavior: Clip.none,
-              children: [
-                FaIcon(
-                  FontAwesomeIcons.shoppingCart,
-                  size: 18,
-                  color: Colors.white,
-                ),
-                Positioned(
-                  right: -7,
-                  top: -4,
-                  child: ClipOval(
-                    child: Container(
-                      width: 8,
-                      height: 8,
-                      color: Color(0xFFfbce19),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-            onPressed: () {
-              // Navigator.of(context).pushNamed(
-              // CartScreen.routeName,
-              //);
-            },
+        Badge(
+          backgroundColor: AppColors.red,
+          label: Text('3'),
+          child: const Icon(
+            Icons.shopping_cart,
+            color: AppColors.white,
           ),
+        ),
+        SizedBox(
+          width: 15,
         ),
       ],
       flexibleSpace: FlexibleSpaceBar(

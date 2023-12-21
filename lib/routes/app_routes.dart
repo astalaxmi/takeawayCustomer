@@ -1,6 +1,6 @@
+import 'package:cusmerraj/presentation/OtpAuthScreen/OtpAuthScreen.dart';
 import 'package:cusmerraj/presentation/root_screen/view/RootView.dart';
 import 'package:flutter/material.dart';
-import 'package:cusmerraj/presentation/takeaway_registrationone_screen/takeaway_registrationone_screen.dart';
 import 'package:cusmerraj/presentation/takeaway_registrationtwo_screen/takeaway_registrationtwo_screen.dart';
 import 'package:cusmerraj/presentation/takeaway_registrationthree_screen/takeaway_registrationthree_screen.dart';
 import 'package:cusmerraj/presentation/takeaway_registrationfour_screen/takeaway_registrationfour_screen.dart';
@@ -110,7 +110,7 @@ class AppRoutes {
 
   static Map<String, WidgetBuilder> routes = {
     approotScreen: (context) => Mynavigationbar(),
-    takeawayRegistrationoneScreen: (context) => TakeawayRegistrationoneScreen(),
+    takeawayRegistrationoneScreen: (context) => OtpAuthScreen(),
     takeawayRegistrationtwoScreen: (context) => TakeawayRegistrationtwoScreen(),
     takeawayRegistrationthreeScreen: (context) =>
         TakeawayRegistrationthreeScreen(),

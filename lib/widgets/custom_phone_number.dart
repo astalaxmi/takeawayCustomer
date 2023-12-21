@@ -30,9 +30,10 @@ class _CustomPhoneNumberState extends State<CustomPhoneNumber> {
               child: IntlPhoneField(
                 decoration: InputDecoration(
                   hintText: "lbl_5555555555".tr,
+                  hintStyle: CustomTextStyles.bodyMediumPoppinsGray600,
                   border: UnderlineInputBorder(
                     borderSide: BorderSide(
-                      color: appTheme.black900,
+                      color: appTheme.gray100,
                     ),
                   ),
                   enabledBorder: UnderlineInputBorder(

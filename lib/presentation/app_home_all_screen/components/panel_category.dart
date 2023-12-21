@@ -1,3 +1,4 @@
+import 'package:cusmerraj/presentation/ProductsListPage/View/ProductsListPage.dart';
 import 'package:cusmerraj/presentation/app_food2_food_items_screen/app_food2_food_items_screen.dart';
 import 'package:cusmerraj/theme/theme_helper.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,17 @@ class PanelCategory extends StatelessWidget {
       ),
       children: [
         gridPanel(context, Colors.orange.shade300, 'Food & Vegetables'),
-        gridPanel(context, Colors.orange.shade300, 'Groceries & Essentials'),
+        GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ProductsListPage(),
+                ),
+              );
+            },
+            child: gridPanel(
+                context, Colors.orange.shade300, 'Groceries & Essentials')),
         gridPanel(
           context,
           Colors.orange.shade300,
@@ -48,7 +59,7 @@ class PanelCategory extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           onTap: () => Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => AppFood2FoodItemsScreen()),
+            MaterialPageRoute(builder: (context) => ProductsListPage()),
           ),
           child: Padding(
             padding: EdgeInsets.all(15),
